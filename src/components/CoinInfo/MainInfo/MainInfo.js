@@ -14,7 +14,9 @@ export default function MainInfo({ coinId }) {
     image: data.image.large,
     symbol: data.symbol,
     price: data.market_data.current_price.usd,
-    change24h: data.market_data.price_change_percentage_24h
+    change24h: data.market_data.price_change_percentage_24h,
+    marketCap: data.market_data.market_cap.usd,
+    marketCapRank: data.market_cap_rank
   }
 
   return (
