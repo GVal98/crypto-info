@@ -6,26 +6,24 @@ import CoinInfo from "../components/CoinInfo"
 
 export default function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Container  maxWidth="lg">
-          <Header />
-          <Switch>
-            <Route exact path="/">
-              <CoinsList />
-            </Route>
-            <Route exact path="/:pageNumber">
-              <CoinsList />
-            </Route>
-            <Route exact path="/coin/:coinId">
-              <CoinInfo />
-            </Route>
-            <Route path="*">
-              Not Found
-            </Route>
-          </Switch>
-        </Container>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Container  maxWidth="lg">
+        <Header />
+        <Switch>
+          <Route exact path="/">
+            <CoinsList />
+          </Route>
+          <Route exact path="/:pageNumber">
+            <CoinsList />
+          </Route>
+          <Route exact path="/coin/:coinId">
+            <CoinInfo />
+          </Route>
+          <Route path="*">
+            Not Found
+          </Route>
+        </Switch>
+      </Container>
+    </BrowserRouter>
   )
 }

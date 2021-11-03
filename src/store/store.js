@@ -6,7 +6,7 @@ const store = configureStore({
   reducer: {
     [coinsApi.reducerPath]: coinsApi.reducer,
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware().concat(coinsApi.middleware),
 })
 setupListeners(store.dispatch)

@@ -6,12 +6,16 @@ export default function Header() {
     <Box sx={{ flexGrow: 1, mb: 3 }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component={Link} to="/" sx={{ flexGrow: 1, textDecoration: 'none', color: 'inherit' }}>
+          <Typography
+            sx={{ flexGrow: 1, textDecoration: 'none', color: 'inherit' }}
+            variant="h6"
+            component={Link} to="/"
+          >
             Crypto Info
           </Typography>
         </Toolbar>
       </AppBar>
     </Box>
-  );
+  )
 }
 
