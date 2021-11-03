@@ -40,7 +40,7 @@ const Price = ({ price }) => (
 
 const Change24h = ({ change24h }) => (
   <Typography
-  sx={{ display: 'inline-block', color: getChangeColor(change24h)}}
+  sx={{ display: 'inline-block', mr: 5, color: getChangeColor(change24h)}}
   variant="body2"
   component="div"
   >
@@ -48,7 +48,27 @@ const Change24h = ({ change24h }) => (
   </Typography>
 )
 
-export default function MainInfoView({ data: { name, image, symbol, price, change24h } }) {
+const MarketCap = ({ marketCap }) => (
+  <Typography
+    sx={{ display: 'inline-block', mr: 1 }}
+    variant="h6"
+    component="div"
+  >
+    ${marketCap.toLocaleString('en-US')}
+  </Typography>
+)
+
+const MarketCapRank = ({ marketCapRank }) => (
+  <Typography
+  sx={{ display: 'inline-block' }}
+  variant="body2"
+  component="div"
+  >
+    #{marketCapRank}
+  </Typography>
+)
+
+export default function MainInfoView({ data: { name, image, symbol, price, change24h, marketCap, marketCapRank } }) {
   return (
   <Box sx={{display: 'flex', alignItems: 'center', mb: 10, mt: 1}}>
     <Icon src={image} />
@@ -57,6 +77,8 @@ export default function MainInfoView({ data: { name, image, symbol, price, chang
       <Symbol symbol={symbol} />
       <Price price={price} />
       <Change24h change24h={change24h} />
+      <MarketCap marketCap={marketCap} />
+      <MarketCapRank marketCapRank={marketCapRank} />
     </Box>
   </Box>
   )

@@ -19,7 +19,9 @@ export default function NameCell({ data }) {
       image: data.image,
       symbol: data.symbol,
       price: data.current_price,
-      change24h: data.price_change_percentage_24h
+      change24h: data.price_change_percentage_24h,
+      marketCap: data.market_cap,
+      marketCapRank: data.market_cap_rank
     }
   }
 
