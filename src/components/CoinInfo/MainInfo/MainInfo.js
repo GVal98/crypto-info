@@ -68,18 +68,38 @@ const MarketCapRank = ({ marketCapRank }) => (
   </Typography>
 )
 
-export default function MainInfo({ data: { name, image, symbol, price, change24h, marketCap, marketCapRank } }) {
-  return (
-  <Box sx={{display: 'flex', alignItems: 'center', mb: 10, mt: 1}}>
+const NameBox = ({ image, name, symbol }) => (
+  <Box sx={{ display: 'flex', alignItems: 'center' }}>
     <Icon src={image} />
-    <Box sx={{display: 'flex', alignItems: 'baseline'}}>
+    <Box sx={{ display: 'flex', alignItems: 'baseline' }}>
       <Name name={name} />
       <Symbol symbol={symbol} />
-      <Price price={price} />
-      <Change24h change24h={change24h} />
-      <MarketCap marketCap={marketCap} />
-      <MarketCapRank marketCapRank={marketCapRank} />
     </Box>
   </Box>
+)
+
+const PriceBox = ({ price, change24h }) => (
+  <Box sx={{ display: 'flex', alignItems: 'baseline' }}>
+    <Price price={price} />
+    <Change24h change24h={change24h} />
+  </Box>
+)
+
+const MarketCapBox = ({ marketCap, marketCapRank }) => (
+  <Box sx={{ display: 'flex', alignItems: 'baseline' }}>
+    <MarketCap marketCap={marketCap} />
+    <MarketCapRank marketCapRank={marketCapRank} />
+  </Box>
+)
+
+export default function MainInfo({ data: { name, image, symbol, price, change24h, marketCap, marketCapRank } }) {
+  return (
+    <Box sx={{ display: 'flex', alignItems: 'center', mb: 3, flexWrap: 'wrap' }}>
+      <NameBox image={image} name={name} symbol={symbol} />
+      <Box sx={{ display: 'flex', alignItems: 'baseline', mt: 1, flexWrap: 'wrap' }}>
+        <PriceBox price={price} change24h={change24h} />
+        <MarketCapBox marketCap={marketCap} marketCapRank={marketCapRank} />
+      </Box>
+    </Box>
   )
 }

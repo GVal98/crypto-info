@@ -7,7 +7,7 @@ import CoinInfo from "../components/CoinInfo"
 export default function App() {
   return (
     <BrowserRouter>
-      <Container maxWidth="lg" disableGutters="true">
+      <Container maxWidth="lg" disableGutters>
         <Header />
         <Switch>
           <Route exact path="/">
