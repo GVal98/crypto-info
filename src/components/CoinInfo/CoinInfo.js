@@ -6,6 +6,31 @@ import Chart from './Chart'
 import ExtraInfo from './ExtraInfo'
 import Loader from '../Loader'
 
+const containerStyle = {
+  display: 'flex',
+  justifyContent: 'space-between',
+  flexDirection: {
+    xs: 'column-reverse',
+    md: 'row'
+  }
+}
+
+const chartStyle = {
+  flexGrow: 1,
+  flexShrink: 1,
+  minWidth: '300px',
+  mr: {
+    xs: 0,
+    md: 3
+  }
+}
+
+const extraInfoStyle = {
+  flexShrink: 0,
+  flexGrow: 0,
+  mb: 2
+}
+
 export default function CoinInfo() {
   const { coinId } = useParams()
   const location = useLocation()
@@ -35,12 +60,12 @@ export default function CoinInfo() {
       {isError && 'Error'}
       <Loader loading={isFetching} />
       <MainInfo data={data ? formattedData : cachedData} />
-      <Container maxWidth="lg" sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Box flexGrow="1" maxWidth="65%">
+      <Container disableGutters maxWidth="lg" sx={containerStyle}>
+        <Box sx={chartStyle}>
           <Typography variant="h5" component="h2">Annual price chart</Typography>
           <Chart coinId={coinId} />
         </Box>
-        <Box flexShrink="0" minWidth="30%">
+        <Box sx={extraInfoStyle}>
           <Typography variant="h5" component="h2">Info</Typography>
           {isError && 'Error'}
           <Loader loading={isFetching} />

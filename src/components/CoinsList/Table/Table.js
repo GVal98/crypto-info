@@ -5,7 +5,7 @@ import Row from './Row'
 export default function Table({ data }) {
   return (
     <TableContainer component={Paper}>
-      <MaterialTable sx={{ minWidth: 650 }}>
+      <MaterialTable>
         <Head />
         <TableBody>
           {data.map(row => <Row data={row} key={row.id} />)}

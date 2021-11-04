@@ -26,7 +26,7 @@ export default function NameCell({ data }) {
   }
 
   return (
-    <TableCell>
+    <TableCell sx={{ whiteSpace: 'nowrap' }}>
       <Link to={linkTo}>
         <Avatar sx={avatarStyle} src={data.image} />
         <Box sx={nameStyle}>{data.name}</Box>
