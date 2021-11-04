@@ -15,6 +15,8 @@ export default function Pagination({pageNumber}) {
     <MaterialPagination
       sx={style}
       count={10}
+      hidePrevButton
+      hideNextButton
       page={+pageNumber}
       onChange={(e, pageNumber) => onPageChange(pageNumber)}
     />
