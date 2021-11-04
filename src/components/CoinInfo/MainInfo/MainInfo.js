@@ -1,29 +1,85 @@
-import { useGetCoinInfoQuery } from '../../../api/coinsApi'
-import { useLocation } from 'react-router-dom'
-import Loader from '../../Loader'
-import MainInfoView from './MainInfoView'
+import { Avatar, Typography, Box } from '@material-ui/core'
+import { getChangeColor } from '../../utils'
 
-export default function MainInfo({ coinId }) {
-  const location = useLocation()
-  const cachedData = location.state
-  const { data, isError, isFetching } = useGetCoinInfoQuery(coinId)
-  
-  let formattedData = null
-  if (data) formattedData = { 
-    name: data.name,
-    image: data.image.large,
-    symbol: data.symbol,
-    price: data.market_data.current_price.usd,
-    change24h: data.market_data.price_change_percentage_24h,
-    marketCap: data.market_data.market_cap.usd,
-    marketCapRank: data.market_cap_rank
-  }
+const Icon = ({ src }) => (
+  <Avatar
+    sx={{ width: 50, height: 50, display: 'inline-block', mr: 1 }}
+    src={src}
+  />
+)
 
+const Name = ({ name }) => (
+  <Typography
+    sx={{ display: 'inline-block', mr: 1 }}
+    variant="h4"
+    component="h1"
+  >
+    {name}
+  </Typography>
+)
+
+const Symbol = ({ symbol }) => (
+  <Typography
+    sx={{ display: 'inline-block', fontWeight: 'light', mr: 5 }}
+    variant="h6"
+    component="div"
+  >
+    {symbol.toUpperCase()}
+  </Typography>
+)
+
+const Price = ({ price }) => (
+  <Typography
+    sx={{ display: 'inline-block', mr: 1 }}
+    variant="h6"
+    component="div"
+  >
+    ${price}
+  </Typography>
+)
+
+const Change24h = ({ change24h }) => (
+  <Typography
+  sx={{ display: 'inline-block', mr: 5, color: getChangeColor(change24h)}}
+  variant="body2"
+  component="div"
+  >
+    {change24h.toFixed(1)}%
+  </Typography>
+)
+
+const MarketCap = ({ marketCap }) => (
+  <Typography
+    sx={{ display: 'inline-block', mr: 1 }}
+    variant="h6"
+    component="div"
+  >
+    ${marketCap.toLocaleString('en-US')}
+  </Typography>
+)
+
+const MarketCapRank = ({ marketCapRank }) => (
+  <Typography
+  sx={{ display: 'inline-block' }}
+  variant="body2"
+  component="div"
+  >
+    #{marketCapRank}
+  </Typography>
+)
+
+export default function MainInfo({ data: { name, image, symbol, price, change24h, marketCap, marketCapRank } }) {
   return (
-    <>
-      {isError && 'Error'}
-      <Loader loading={isFetching} />
-      <MainInfoView data={data ? formattedData : cachedData} />
-    </>
+  <Box sx={{display: 'flex', alignItems: 'center', mb: 10, mt: 1}}>
+    <Icon src={image} />
+    <Box sx={{display: 'flex', alignItems: 'baseline'}}>
+      <Name name={name} />
+      <Symbol symbol={symbol} />
+      <Price price={price} />
+      <Change24h change24h={change24h} />
+      <MarketCap marketCap={marketCap} />
+      <MarketCapRank marketCapRank={marketCapRank} />
+    </Box>
+  </Box>
   )
 }

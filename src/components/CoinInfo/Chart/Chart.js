@@ -9,7 +9,7 @@ export default function Chart({ coinId }) {
   const { data, isError, isFetching } = useGetCoinHistoryQuery(coinId)
   
   return (
-    <Box sx={{ height: 500 }}>
+    <Box height="400px">
       {isError && 'Error'}
       <Loader loading={isFetching} />
       {data && <ChartView prices={mapData(data)}/>}
