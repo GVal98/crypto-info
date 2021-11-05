@@ -1,7 +1,10 @@
-import { AppBar, Box, Toolbar, Typography } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { AppBar, Box, Toolbar, Typography, IconButton } from '@material-ui/core'
+import { AccountCircle } from '@material-ui/icons'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function Header() {
+  const { pathname } = useLocation()
+
   return (
     <Box sx={{ flexGrow: 1, mb: 3 }}>
       <AppBar position="static">
@@ -13,6 +16,13 @@ export default function Header() {
           >
             Crypto Info
           </Typography>
+          <IconButton
+            color="inherit"
+            component={Link}
+            to={`${pathname === '/' ? '' : pathname}/login`}
+          >
+            <AccountCircle />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </Box>
