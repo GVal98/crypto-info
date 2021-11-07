@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux"
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom"
 import { Container } from '@material-ui/core'
 import Header from '../components/Header'
@@ -5,7 +6,7 @@ import CoinsList from "../components/CoinsList"
 import CoinInfo from "../components/CoinInfo"
 import LoginModal from "../components/LoginModal"
 import AccountInfo from "../components/AccountInfo"
-import { useSelector } from "react-redux"
+import Footer from '../components/Footer'
 
 export default function App() {
   const username = useSelector(state => state.user.username)
@@ -32,6 +33,7 @@ export default function App() {
             Not Found
           </Route>
         </Switch>
+        <Footer />
       </Container>
     </BrowserRouter>
   )
