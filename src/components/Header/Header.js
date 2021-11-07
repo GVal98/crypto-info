@@ -1,9 +1,11 @@
-import { AppBar, Box, Toolbar, Typography, IconButton } from '@material-ui/core'
+import { AppBar, Box, Toolbar, Typography, Button } from '@material-ui/core'
 import { AccountCircle } from '@material-ui/icons'
 import { Link, useLocation } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export default function Header() {
   const { pathname } = useLocation()
+  const username = useSelector(state => state.user.username)
 
   return (
     <Box sx={{ flexGrow: 1, mb: 3 }}>
@@ -16,13 +18,15 @@ export default function Header() {
           >
             Crypto Info
           </Typography>
-          <IconButton
+          <Button
             color="inherit"
+            size="large"
+            endIcon={<AccountCircle />}
             component={Link}
-            to={`${pathname === '/' ? '' : pathname}/login`}
+            to={username ? '/account' : `${pathname === '/' ? '' : pathname}/login`}
           >
-            <AccountCircle />
-          </IconButton>
+            {username ?? 'Log In'}
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
