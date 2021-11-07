@@ -1,4 +1,6 @@
 import { useGetCoinsQuery } from '../../api/coinsApi'
+import { useGetFavoritesQuery } from '../../api/usersApi'
+import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { Typography } from '@material-ui/core'
 import Loader from '../Loader'
@@ -9,6 +11,12 @@ export default function CoinsList() {
   const pageNumber = useParams().pageNumber || 1
   const { data, isError, isFetching } = useGetCoinsQuery(pageNumber)
 
+  const accessToken = useSelector(state => state.user.accessToken)
+  
+  const { data: favoritesData } = useGetFavoritesQuery(accessToken, {
+    skip: !accessToken
+  })
+
   return (
     <>
       <Loader loading={isFetching} />
@@ -18,7 +26,7 @@ export default function CoinsList() {
       {isError && 'Error'}
       {data && 
       <>
-        <Table data={data} />
+        <Table data={data} favorites={favoritesData || []} />
         <Pagination pageNumber={pageNumber} />
       </>
       }

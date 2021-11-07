@@ -6,6 +6,7 @@ export default function Head() {
       <TableRow>
         <TableCell>#</TableCell>
         <TableCell>Coin</TableCell>
+        <TableCell></TableCell>
         <TableCell align="right">Price</TableCell>
         <TableCell align="right">24h</TableCell>
         <TableCell align="right">Market Cap</TableCell>
