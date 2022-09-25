@@ -1,6 +1,6 @@
-import { useGetCoinInfoQuery } from '../../api/coinsApi'
 import { useLocation, useParams } from 'react-router-dom'
 import { Typography, Box, Container } from '@material-ui/core'
+import { useGetCoinInfoQuery } from '../../api/coinsApi'
 import MainInfo from './MainInfo'
 import Chart from './Chart'
 import ExtraInfo from './ExtraInfo'
@@ -11,8 +11,8 @@ const containerStyle = {
   justifyContent: 'space-between',
   flexDirection: {
     xs: 'column-reverse',
-    md: 'row'
-  }
+    md: 'row',
+  },
 }
 
 const chartStyle = {
@@ -21,14 +21,14 @@ const chartStyle = {
   minWidth: '300px',
   mr: {
     xs: 0,
-    md: 3
-  }
+    md: 3,
+  },
 }
 
 const extraInfoStyle = {
   flexShrink: 0,
   flexGrow: 0,
-  mb: 2
+  mb: 2,
 }
 
 export default function CoinInfo() {
@@ -36,23 +36,25 @@ export default function CoinInfo() {
   const location = useLocation()
   const cachedData = location.state
   const { data, isError, isFetching } = useGetCoinInfoQuery(coinId)
-  
+
   let formattedData = null
-  if (data) formattedData = { 
-    name: data.name,
-    image: data.image.large,
-    symbol: data.symbol,
-    price: data.market_data.current_price.usd,
-    change24h: data.market_data.price_change_percentage_24h,
-    marketCap: data.market_data.market_cap.usd,
-    marketCapRank: data.market_cap_rank,
-    category: data.categories[0],
-    homePage: data.links.homepage[0],
-    circulatingSupply: data.market_data.circulating_supply,
-    maxSupply: data.market_data.max_supply,
-    ath: data.market_data.ath.usd,
-    athDate: data.market_data.ath_date.usd,
-    athChange: data.market_data.ath_change_percentage.usd
+  if (data) {
+    formattedData = {
+      name: data.name,
+      image: data.image.large,
+      symbol: data.symbol,
+      price: data.market_data.current_price.usd,
+      change24h: data.market_data.price_change_percentage_24h,
+      marketCap: data.market_data.market_cap.usd,
+      marketCapRank: data.market_cap_rank,
+      category: data.categories[0],
+      homePage: data.links.homepage[0],
+      circulatingSupply: data.market_data.circulating_supply,
+      maxSupply: data.market_data.max_supply,
+      ath: data.market_data.ath.usd,
+      athDate: data.market_data.ath_date.usd,
+      athChange: data.market_data.ath_change_percentage.usd,
+    }
   }
 
   return (

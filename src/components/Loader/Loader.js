@@ -1,6 +1,6 @@
 import { LinearProgress, Box } from '@material-ui/core'
 
-const getVisibility = loading => loading ? 'visible' : 'hidden'
+const getVisibility = (loading) => (loading ? 'visible' : 'hidden')
 
 export default function Loader({ loading }) {
   return (

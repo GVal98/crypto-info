@@ -1,19 +1,19 @@
-import { TableContainer, Table, Paper, TableBody, Link } from '@material-ui/core'
+import {
+  TableContainer, Table, Paper, TableBody, Link,
+} from '@material-ui/core'
 import Row from './Row'
 
-const formatDate = dateString => {
+const formatDate = (dateString) => {
   const date = new Date(dateString)
   return date.toLocaleDateString()
 }
 
-const formatSypply = (supply, symbol) => {
-  return `${Math.round(supply) || 'Infinity'} ${symbol}`
-}
+const formatSypply = (supply, symbol) => `${Math.round(supply) || 'Infinity'} ${symbol}`
 
 export default function ExtraInfo({ data }) {
   const symbol = data.symbol.toUpperCase()
   const homePageLink = <Link href={data.homePage}>{data.homePage}</Link>
-  
+
   return (
     <TableContainer component={Paper}>
       <Table>

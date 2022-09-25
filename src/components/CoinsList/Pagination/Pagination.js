@@ -3,9 +3,9 @@ import { Pagination as MaterialPagination } from '@material-ui/core'
 
 const style = { mt: 2, display: 'flex', justifyContent: 'center' }
 
-export default function Pagination({pageNumber}) {
-  const onPageChange = pageNumber => {
-    history.push(`/${pageNumber}`)
+export default function Pagination({ pageNumber }) {
+  const onPageChange = (page) => {
+    history.push(`/${page}`)
     window.scrollTo(0, 0)
   }
 
@@ -18,7 +18,7 @@ export default function Pagination({pageNumber}) {
       hidePrevButton
       hideNextButton
       page={+pageNumber}
-      onChange={(e, pageNumber) => onPageChange(pageNumber)}
+      onChange={(e, page) => onPageChange(page)}
     />
   )
 }

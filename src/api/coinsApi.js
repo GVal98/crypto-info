@@ -11,8 +11,8 @@ export const coinsApi = createApi({
           vs_currency: 'usd',
           per_page: 20,
           page: pageNumber,
-          price_change_percentage: '24h'
-        }
+          price_change_percentage: '24h',
+        },
       }),
     }),
     getCoinInfo: builder.query({
@@ -23,8 +23,8 @@ export const coinsApi = createApi({
           tickers: false,
           market_data: true,
           community_data: false,
-          developer_data: false
-        }
+          developer_data: false,
+        },
       }),
     }),
     getCoinHistory: builder.query({
@@ -33,7 +33,7 @@ export const coinsApi = createApi({
         params: {
           vs_currency: 'usd',
           days: '365',
-        }
+        },
       }),
     }),
   }),

@@ -1,10 +1,12 @@
-import { Button, Dialog, DialogTitle, DialogContent, TextField, DialogActions } from '@material-ui/core'
-import { Route, useLocation, useHistory } from 'react-router'
+import {
+  Button, Dialog, DialogTitle, DialogContent, TextField, DialogActions,
+} from '@material-ui/core'
+import { Route, useLocation, useHistory } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 import { useDispatch } from 'react-redux'
+import * as Yup from 'yup';
 import Loader from '../Loader'
 import { setUser } from '../../store/userSlice'
-import * as Yup from 'yup';
 
 const MaterialField = ({ field, form, ...props }) => (
   <TextField
@@ -50,12 +52,12 @@ export default function LoginModal() {
             fetch('http://127.0.0.1:3001/accessToken', {
               method: 'POST',
               headers: {
-                'Content-Type': 'application/json;charset=utf-8'
+                'Content-Type': 'application/json;charset=utf-8',
               },
-              body: JSON.stringify(values)
+              body: JSON.stringify(values),
             })
-              .then(response => response.json())
-              .then(result => {
+              .then((response) => response.json())
+              .then((result) => {
                 dispatch(setUser(result))
                 localStorage.setItem('username', result.username)
                 localStorage.setItem('accessToken', result.accessToken)

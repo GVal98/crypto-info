@@ -9,30 +9,30 @@ export const usersApi = createApi({
       query: (accessToken) => ({
         url: 'favorites/',
         headers: {
-          accessToken
-        }
+          accessToken,
+        },
       }),
-      providesTags: ['favorites']
+      providesTags: ['favorites'],
     }),
     addFavorite: builder.mutation({
       query: ({ accessToken, tokenId }) => ({
         url: `favorites/${tokenId}`,
         method: 'POST',
         headers: {
-          accessToken
+          accessToken,
         },
       }),
-      invalidatesTags: ['favorites']
+      invalidatesTags: ['favorites'],
     }),
     removeFavorite: builder.mutation({
       query: ({ accessToken, tokenId }) => ({
         url: `favorites/${tokenId}`,
         method: 'DELETE',
         headers: {
-          accessToken
+          accessToken,
         },
       }),
-      invalidatesTags: ['favorites']
+      invalidatesTags: ['favorites'],
     }),
   }),
 })

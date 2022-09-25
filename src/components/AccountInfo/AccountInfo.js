@@ -1,4 +1,6 @@
-import { Typography, Button, Card, CardActions, CardContent } from '@material-ui/core'
+import {
+  Typography, Button, Card, CardActions, CardContent,
+} from '@material-ui/core'
 import { useSelector, useDispatch } from 'react-redux'
 import { setUser } from '../../store/userSlice'
 import { useGetFavoritesQuery } from '../../api/usersApi'
@@ -9,13 +11,13 @@ export default function AccountInfo() {
     localStorage.removeItem('accessToken')
     dispatch(setUser({
       username: null,
-      accessToken: null
+      accessToken: null,
     }))
   }
 
   const dispatch = useDispatch()
-  const username = useSelector(state => state.user.username)
-  const accessToken = useSelector(state => state.user.accessToken)
+  const username = useSelector((state) => state.user.username)
+  const accessToken = useSelector((state) => state.user.accessToken)
 
   const { data } = useGetFavoritesQuery(accessToken)
 
@@ -42,7 +44,7 @@ export default function AccountInfo() {
         <CardActions>
           <Button onClick={handleLogout}>Log Out</Button>
         </CardActions>
-      </Card>    
+      </Card>
     </>
   )
 }

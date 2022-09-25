@@ -8,12 +8,11 @@ const store = configureStore({
   reducer: {
     [coinsApi.reducerPath]: coinsApi.reducer,
     [usersApi.reducerPath]: usersApi.reducer,
-    user: userReducer
+    user: userReducer,
   },
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware()
-      .concat(coinsApi.middleware)
-      .concat(usersApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware()
+    .concat(coinsApi.middleware)
+    .concat(usersApi.middleware),
 })
 
 setupListeners(store.dispatch)

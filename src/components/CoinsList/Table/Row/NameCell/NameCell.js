@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom'
 import { Box, TableCell, Avatar } from '@material-ui/core'
 
-const avatarStyle = { width: 25, height: 25, display: 'inline-block', verticalAlign: 'middle' }
-const nameStyle = { display: 'inline-block', verticalAlign: 'middle', ml: 2, color: 'black' }
-const symbolStyle = { 
+const avatarStyle = {
+  width: 25, height: 25, display: 'inline-block', verticalAlign: 'middle',
+}
+const nameStyle = {
+  display: 'inline-block', verticalAlign: 'middle', ml: 2, color: 'black',
+}
+const symbolStyle = {
   display: 'inline-block',
   verticalAlign: 'middle',
   ml: 2,
@@ -21,8 +25,8 @@ export default function NameCell({ data }) {
       price: data.current_price,
       change24h: data.price_change_percentage_24h,
       marketCap: data.market_cap,
-      marketCapRank: data.market_cap_rank
-    }
+      marketCapRank: data.market_cap_rank,
+    },
   }
 
   return (

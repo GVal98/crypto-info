@@ -6,7 +6,7 @@ export default function Row({ name, value }) {
   return (
     <TableRow sx={rowStyle}>
       <TableCell component="th" scope="row">{name}</TableCell>
-      <TableCell align="right" sx= {{ fontWeight: 'medium' }}>{value}</TableCell>
+      <TableCell align="right" sx={{ fontWeight: 'medium' }}>{value}</TableCell>
     </TableRow>
   )
 }

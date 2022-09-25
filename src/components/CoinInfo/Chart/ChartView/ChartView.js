@@ -1,13 +1,15 @@
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import {
+  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
+} from 'recharts'
 
-const timestampToDate = timestamp => (new Date(timestamp)).toLocaleDateString()
-const formatTooltipPrice = price => [`$${+price.toPrecision(5)}`, 'Price']
+const timestampToDate = (timestamp) => (new Date(timestamp)).toLocaleDateString()
+const formatTooltipPrice = (price) => [`$${+price.toPrecision(5)}`, 'Price']
 
-export default function ChartView({prices}) {
+export default function ChartView({ prices }) {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <LineChart
-        fontFamily={'Roboto, sans-serif'}
+        fontFamily="Roboto, sans-serif"
         fontSize={14}
         data={prices}
         margin={{
@@ -18,10 +20,10 @@ export default function ChartView({prices}) {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="date" minTickGap="1" tickFormatter={timestampToDate}/>
-        <YAxis tickFormatter={price => `$${price}`}/>
+        <XAxis dataKey="date" minTickGap="1" tickFormatter={timestampToDate} />
+        <YAxis tickFormatter={(price) => `$${price}`} />
         <Tooltip
-          contentStyle={{fontFamily:'Roboto, sans-serif'}}
+          contentStyle={{ fontFamily: 'Roboto, sans-serif' }}
           formatter={formatTooltipPrice}
           labelFormatter={timestampToDate}
         />
