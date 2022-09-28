@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { Typography } from '@material-ui/core'
-import { useGetFavoritesQuery } from '../../api/usersApi'
+import { useGetFavoritesQuery } from '../../api/favoritesApi'
 import { useGetCoinsQuery } from '../../api/coinsApi'
 import Loader from '../Loader'
 import Table from './Table'

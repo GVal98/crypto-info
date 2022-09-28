@@ -3,7 +3,7 @@ import { TableRow, TableCell, IconButton } from '@material-ui/core'
 import { Favorite, FavoriteBorder } from '@material-ui/icons'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { useAddFavoriteMutation, useRemoveFavoriteMutation } from '../../../../api/usersApi'
+import { useAddFavoriteMutation, useRemoveFavoriteMutation } from '../../../../api/favoritesApi'
 import NameCell from './NameCell'
 import ChangeCell from './ChangeCell'
 

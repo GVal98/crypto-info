@@ -1,7 +1,7 @@
 import { Typography, Button, Card, CardActions, CardContent } from '@material-ui/core'
 import { useSelector, useDispatch } from 'react-redux'
 import { setUser } from '../../store/userSlice'
-import { useGetFavoritesQuery } from '../../api/usersApi'
+import { useGetFavoritesQuery } from '../../api/favoritesApi'
 
 export default function AccountInfo() {
   const handleLogout = () => {

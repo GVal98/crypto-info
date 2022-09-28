@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-export const usersApi = createApi({
-  reducerPath: 'usersAPI',
+export const favoritesApi = createApi({
+  reducerPath: 'favoritesAPI',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://127.0.0.1:3001/' }),
   tagTypes: ['favorites'],
   endpoints: (builder) => ({
@@ -37,4 +37,8 @@ export const usersApi = createApi({
   }),
 })
 
-export const { useGetFavoritesQuery, useAddFavoriteMutation, useRemoveFavoriteMutation } = usersApi
+export const {
+  useGetFavoritesQuery,
+  useAddFavoriteMutation,
+  useRemoveFavoriteMutation,
+} = favoritesApi
