@@ -1,16 +1,11 @@
 import { Typography, Button, Card, CardActions, CardContent } from '@material-ui/core'
 import { useSelector, useDispatch } from 'react-redux'
-import { setUser } from '../../store/userSlice'
+import { logOut } from '../../store/userSlice'
 import { useGetFavoritesQuery } from '../../api/favoritesApi'
 
 export default function AccountInfo() {
   const handleLogout = () => {
-    localStorage.removeItem('username')
-    localStorage.removeItem('accessToken')
-    dispatch(setUser({
-      username: null,
-      accessToken: null,
-    }))
+    dispatch(logOut())
   }
 
   const dispatch = useDispatch()

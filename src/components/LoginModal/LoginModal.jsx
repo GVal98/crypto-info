@@ -4,7 +4,7 @@ import { Formik, Form, Field } from 'formik'
 import { useDispatch } from 'react-redux'
 import * as Yup from 'yup';
 import Loader from '../Loader'
-import { setUser } from '../../store/userSlice'
+import { getUser } from '../../store/userSlice'
 
 const MaterialField = ({ field, form, ...props }) => (
   <TextField
@@ -46,20 +46,9 @@ export default function LoginModal() {
         <Formik
           initialValues={{ username: '', password: '' }}
           validationSchema={loginSchema}
-          onSubmit={(values, { setSubmitting }) => {
-            fetch('http://127.0.0.1:3001/accessToken', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json;charset=utf-8',
-              },
-              body: JSON.stringify(values),
-            })
-              .then((response) => response.json())
-              .then((result) => {
-                dispatch(setUser(result))
-                localStorage.setItem('username', result.username)
-                localStorage.setItem('accessToken', result.accessToken)
-                setSubmitting(false)
+          onSubmit={(values) => {
+            dispatch(getUser(values)).unwrap()
+              .then(() => {
                 handleClose()
               })
           }}
