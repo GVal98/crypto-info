@@ -1,6 +1,4 @@
-import {
-  Button, Dialog, DialogTitle, DialogContent, TextField, DialogActions,
-} from '@material-ui/core'
+import { Button, Dialog, DialogTitle, DialogContent, TextField, DialogActions } from '@material-ui/core'
 import { Route, useLocation, useHistory } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 import { useDispatch } from 'react-redux'

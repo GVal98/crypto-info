@@ -1,6 +1,4 @@
-import {
-  TableContainer, Table, Paper, TableBody, Link,
-} from '@material-ui/core'
+import { TableContainer, Table, Paper, TableBody, Link } from '@material-ui/core'
 import Row from './Row'
 
 const formatDate = (dateString) => {

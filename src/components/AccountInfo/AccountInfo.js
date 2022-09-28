@@ -1,6 +1,4 @@
-import {
-  Typography, Button, Card, CardActions, CardContent,
-} from '@material-ui/core'
+import { Typography, Button, Card, CardActions, CardContent } from '@material-ui/core'
 import { useSelector, useDispatch } from 'react-redux'
 import { setUser } from '../../store/userSlice'
 import { useGetFavoritesQuery } from '../../api/usersApi'

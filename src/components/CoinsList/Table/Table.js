@@ -1,6 +1,4 @@
-import {
-  TableContainer, Table as MaterialTable, Paper, TableBody,
-} from '@material-ui/core'
+import { TableContainer, Table as MaterialTable, Paper, TableBody } from '@material-ui/core'
 import Head from './Head'
 import Row from './Row'
 

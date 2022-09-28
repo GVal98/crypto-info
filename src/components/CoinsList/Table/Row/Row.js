@@ -23,13 +23,11 @@ export default function Row({ data, favorite }) {
         <IconButton onClick={() => (accessToken ? (favorite ? removeFavorite({ accessToken, tokenId: data.id }) : addFavorite({ accessToken, tokenId: data.id })) : history.push(`${history.pathname === '/' ? '' : history.pathname}/login`))}>{favorite ? <Favorite color="error" /> : <FavoriteBorder />}</IconButton>
       </TableCell>
       <TableCell align="right">
-        $
-        {data.current_price}
+        ${data.current_price}
       </TableCell>
       <ChangeCell change={data.price_change_percentage_24h} />
       <TableCell align="right">
-        $
-        {data.market_cap.toLocaleString('en-US')}
+        ${data.market_cap.toLocaleString('en-US')}
       </TableCell>
     </TableRow>
   )

@@ -1,6 +1,4 @@
-import {
-  AppBar, Box, Toolbar, Typography, Button,
-} from '@material-ui/core'
+import { AppBar, Box, Toolbar, Typography, Button } from '@material-ui/core'
 import { AccountCircle } from '@material-ui/icons'
 import { Link, useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'

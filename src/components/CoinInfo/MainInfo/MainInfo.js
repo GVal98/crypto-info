@@ -3,9 +3,7 @@ import { getChangeColor } from '../../utils'
 
 const Icon = ({ src }) => (
   <Avatar
-    sx={{
-      width: 50, height: 50, display: 'inline-block', mr: 1,
-    }}
+    sx={{ width: 50, height: 50, display: 'inline-block', mr: 1 }}
     src={src}
   />
 )
@@ -36,8 +34,7 @@ const Price = ({ price }) => (
     variant="h6"
     component="div"
   >
-    $
-    {price}
+    ${price}
   </Typography>
 )
 
@@ -47,8 +44,7 @@ const Change24h = ({ change24h }) => (
     variant="body2"
     component="div"
   >
-    {change24h.toFixed(1)}
-    %
+    {change24h.toFixed(1)}%
   </Typography>
 )
 
@@ -58,8 +54,7 @@ const MarketCap = ({ marketCap }) => (
     variant="h6"
     component="div"
   >
-    $
-    {marketCap.toLocaleString('en-US')}
+    ${marketCap.toLocaleString('en-US')}
   </Typography>
 )
 
@@ -69,8 +64,7 @@ const MarketCapRank = ({ marketCapRank }) => (
     variant="body2"
     component="div"
   >
-    #
-    {marketCapRank}
+    #{marketCapRank}
   </Typography>
 )
 
@@ -99,20 +93,12 @@ const MarketCapBox = ({ marketCap, marketCapRank }) => (
 )
 
 export default function MainInfo({
-  data: {
-    name, image, symbol, price, change24h, marketCap, marketCapRank,
-  },
+  data: { name, image, symbol, price, change24h, marketCap, marketCapRank },
 }) {
   return (
-    <Box sx={{
-      display: 'flex', alignItems: 'center', mb: 3, flexWrap: 'wrap',
-    }}
-    >
+    <Box sx={{ display: 'flex', alignItems: 'center', mb: 3, flexWrap: 'wrap' }}>
       <NameBox image={image} name={name} symbol={symbol} />
-      <Box sx={{
-        display: 'flex', alignItems: 'baseline', mt: 1, flexWrap: 'wrap',
-      }}
-      >
+      <Box sx={{ display: 'flex', alignItems: 'baseline', mt: 1, flexWrap: 'wrap' }}>
         <PriceBox price={price} change24h={change24h} />
         <MarketCapBox marketCap={marketCap} marketCapRank={marketCapRank} />
       </Box>

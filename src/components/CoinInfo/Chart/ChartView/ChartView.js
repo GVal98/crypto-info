@@ -1,6 +1,4 @@
-import {
-  LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-} from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 const timestampToDate = (timestamp) => (new Date(timestamp)).toLocaleDateString()
 const formatTooltipPrice = (price) => [`$${+price.toPrecision(5)}`, 'Price']

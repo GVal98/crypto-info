@@ -1,7 +1,5 @@
 import { useSelector } from 'react-redux'
-import {
-  BrowserRouter, Switch, Route, Redirect,
-} from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Container } from '@material-ui/core'
 import Header from '../components/Header'
 import CoinsList from '../components/CoinsList'
