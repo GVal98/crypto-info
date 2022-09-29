@@ -2,7 +2,7 @@ import { Typography, Box, Container } from '@material-ui/core'
 import MainInfo from './MainInfo'
 import Chart from './Chart'
 import ExtraInfo from './ExtraInfo'
-import Loader from '../Loader'
+import Loader from '../../components/Loader'
 
 const containerStyle = {
   display: 'flex',

@@ -1,5 +1,5 @@
 import { TableCell } from '@material-ui/core'
-import { getChangeColor } from '../../../../utils'
+import { getChangeColor } from '../../../../../utils'
 
 export default function ChangeCell({ change }) {
   return (

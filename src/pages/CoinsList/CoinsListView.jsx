@@ -1,5 +1,5 @@
 import { Typography } from '@material-ui/core'
-import Loader from '../Loader'
+import Loader from '../../components/Loader'
 import Table from './Table'
 import Pagination from './Pagination'
 

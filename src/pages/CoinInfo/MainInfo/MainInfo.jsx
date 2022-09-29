@@ -1,5 +1,5 @@
 import { Avatar, Typography, Box } from '@material-ui/core'
-import { getChangeColor } from '../../utils'
+import { getChangeColor } from '../../../utils'
 
 const Icon = ({ src }) => (
   <Avatar

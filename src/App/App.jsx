@@ -2,11 +2,11 @@ import { useSelector } from 'react-redux'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Container } from '@material-ui/core'
 import Header from '../components/Header'
-import CoinsList from '../components/CoinsList'
-import CoinInfo from '../components/CoinInfo'
 import LoginModal from '../components/LoginModal'
-import Account from '../components/Account'
 import Footer from '../components/Footer'
+import CoinsList from '../pages/CoinsList'
+import CoinInfo from '../pages/CoinInfo'
+import Account from '../pages/Account'
 
 export default function App() {
   const username = useSelector((state) => state.user.username)
