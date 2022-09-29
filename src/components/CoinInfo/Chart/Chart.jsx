@@ -1,7 +1,7 @@
 import { Box } from '@material-ui/core'
+import ChartView from './ChartView'
 import { useGetCoinHistoryQuery } from '../../../api/coinsApi'
 import Loader from '../../Loader'
-import ChartView from './ChartView'
 
 const mapData = (data) => data.prices.map((tuple) => ({ date: tuple[0], price: tuple[1] }))
 

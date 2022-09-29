@@ -1,19 +1,6 @@
 import { Typography, Button, Card, CardActions, CardContent } from '@material-ui/core'
-import { useSelector, useDispatch } from 'react-redux'
-import { logOut } from '../../store/userSlice'
-import { useGetFavoritesQuery } from '../../api/favoritesApi'
 
-export default function AccountInfo() {
-  const handleLogout = () => {
-    dispatch(logOut())
-  }
-
-  const dispatch = useDispatch()
-  const username = useSelector((state) => state.user.username)
-  const accessToken = useSelector((state) => state.user.accessToken)
-
-  const { data } = useGetFavoritesQuery(accessToken)
-
+export default function AccountInfoView({ username, favorites, handleLogout }) {
   return (
     <>
       <Typography sx={{ mb: 3 }} variant="h4" component="h1">
@@ -31,7 +18,7 @@ export default function AccountInfo() {
             Favorites count
           </Typography>
           <Typography variant="h5">
-            {data && data.length}
+            {favorites && favorites.length}
           </Typography>
         </CardContent>
         <CardActions>

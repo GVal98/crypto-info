@@ -8,7 +8,9 @@ export default function Table({ data, favorites }) {
       <MaterialTable>
         <Head />
         <TableBody>
-          {data.map((row) => <Row data={row} key={row.id} favorite={favorites.includes(row.id)} />)}
+          {data.map(
+            (row) => <Row data={row} key={row.id} isFavorite={favorites.includes(row.id)} />,
+          )}
         </TableBody>
       </MaterialTable>
     </TableContainer>

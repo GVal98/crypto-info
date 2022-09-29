@@ -1,41 +1,25 @@
-import { Link } from 'react-router-dom'
-import { Box, TableCell, Avatar } from '@material-ui/core'
+import NameCellView from './NameCellView'
 
-const avatarStyle = {
-  width: 25, height: 25, display: 'inline-block', verticalAlign: 'middle',
-}
-const nameStyle = {
-  display: 'inline-block', verticalAlign: 'middle', ml: 2, color: 'black',
-}
-const symbolStyle = {
-  display: 'inline-block',
-  verticalAlign: 'middle',
-  ml: 2,
-  fontWeight: 'light',
-  color: 'black',
-}
+const createLinkTo = (data) => ({
+  pathname: `/coin/${data.id}`,
+  state: {
+    name: data.name,
+    image: data.image,
+    symbol: data.symbol,
+    price: data.current_price,
+    change24h: data.price_change_percentage_24h,
+    marketCap: data.market_cap,
+    marketCapRank: data.market_cap_rank,
+  },
+})
 
 export default function NameCell({ data }) {
-  const linkTo = {
-    pathname: `/coin/${data.id}`,
-    state: {
-      name: data.name,
-      image: data.image,
-      symbol: data.symbol,
-      price: data.current_price,
-      change24h: data.price_change_percentage_24h,
-      marketCap: data.market_cap,
-      marketCapRank: data.market_cap_rank,
-    },
-  }
-
   return (
-    <TableCell sx={{ whiteSpace: 'nowrap' }}>
-      <Link to={linkTo}>
-        <Avatar sx={avatarStyle} src={data.image} />
-        <Box sx={nameStyle}>{data.name}</Box>
-        <Box sx={symbolStyle}>{data.symbol.toUpperCase()}</Box>
-      </Link>
-    </TableCell>
+    <NameCellView
+      linkTo={createLinkTo(data)}
+      name={data.name}
+      image={data.image}
+      symbol={data.symbol}
+    />
   )
 }

@@ -5,7 +5,7 @@ import Header from '../components/Header'
 import CoinsList from '../components/CoinsList'
 import CoinInfo from '../components/CoinInfo'
 import LoginModal from '../components/LoginModal'
-import AccountInfo from '../components/AccountInfo'
+import Account from '../components/Account'
 import Footer from '../components/Footer'
 
 export default function App() {
@@ -24,7 +24,7 @@ export default function App() {
             <CoinInfo />
           </Route>
           <Route path="/account">
-            {username ? <AccountInfo /> : <Redirect to="/" />}
+            {username ? <Account /> : <Redirect to="/" />}
           </Route>
           <Route path="/">
             <CoinsList />
