@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { useAddFavoriteMutation, useRemoveFavoriteMutation } from '../../../../api/favoritesApi'
+import { selectAccessToken } from '../../../../store/userSlice'
 import RowView from './RowView'
 
 export default function Row({ data, isFavorite }) {
@@ -19,7 +20,7 @@ export default function Row({ data, isFavorite }) {
 
   const [addFavorite] = useAddFavoriteMutation()
   const [removeFavorite] = useRemoveFavoriteMutation()
-  const accessToken = useSelector((state) => state.user.accessToken)
+  const accessToken = useSelector(selectAccessToken)
   const history = useHistory()
 
   return (

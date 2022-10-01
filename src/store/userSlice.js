@@ -32,6 +32,9 @@ const userSlice = createSlice({
   },
 })
 
-export { getUser }
+const selectUsername = (state) => state.user.username
+const selectAccessToken = (state) => state.user.accessToken
+
+export { getUser, selectUsername, selectAccessToken }
 export const { logOut } = userSlice.actions
 export default userSlice.reducer

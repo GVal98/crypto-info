@@ -1,10 +1,11 @@
 import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { selectUsername } from '../../store/userSlice'
 import HeaderView from './HeaderView'
 
 export default function Header() {
   const { pathname } = useLocation()
-  const username = useSelector((state) => state.user.username)
+  const username = useSelector(selectUsername)
 
   return (
     <HeaderView

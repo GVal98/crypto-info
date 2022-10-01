@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Container } from '@material-ui/core'
+import { selectUsername } from '../store/userSlice'
 import Header from '../components/Header'
 import LoginModal from '../components/LoginModal'
 import Footer from '../components/Footer'
@@ -9,7 +10,7 @@ import CoinInfo from '../pages/CoinInfo'
 import Account from '../pages/Account'
 
 export default function App() {
-  const username = useSelector((state) => state.user.username)
+  const username = useSelector(selectUsername)
 
   return (
     <BrowserRouter>
