@@ -26,6 +26,7 @@ const chartStyle = {
 const extraInfoStyle = {
   flexShrink: 0,
   flexGrow: 0,
+  minWidth: '300px',
   mb: 2,
 }
 
