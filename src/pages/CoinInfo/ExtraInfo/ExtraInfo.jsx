@@ -8,21 +8,21 @@ const formatDate = (dateString) => {
 
 const formatSypply = (supply, symbol) => `${Math.round(supply) || 'Infinity'} ${symbol}`
 
-export default function ExtraInfo({ data }) {
-  const symbol = data.symbol.toUpperCase()
-  const homePageLink = <Link href={data.homePage}>{data.homePage}</Link>
+export default function ExtraInfo({ coinData }) {
+  const symbol = coinData.symbol.toUpperCase()
+  const homePageLink = <Link href={coinData.homePage}>{coinData.homePage}</Link>
 
   return (
     <TableContainer component={Paper}>
       <Table>
         <TableBody>
-          <Row name="Category" value={data.category} />
+          <Row name="Category" value={coinData.category} />
           <Row name="Home Page" value={homePageLink} />
-          <Row name="Circulating Supply" value={formatSypply(data.circulatingSupply, symbol)} />
-          <Row name="Max Supply" value={formatSypply(data.maxSupply, symbol)} />
-          <Row name="All Time High" value={`${data.ath} ${symbol}`} />
-          <Row name="ATH Date" value={formatDate(data.athDate)} />
-          <Row name="ATH Change" value={`${data.athChange.toFixed(2)}%`} />
+          <Row name="Circulating Supply" value={formatSypply(coinData.circulatingSupply, symbol)} />
+          <Row name="Max Supply" value={formatSypply(coinData.maxSupply, symbol)} />
+          <Row name="All Time High" value={`${coinData.ath} ${symbol}`} />
+          <Row name="ATH Date" value={formatDate(coinData.athDate)} />
+          <Row name="ATH Change" value={`${coinData.athChange.toFixed(2)}%`} />
         </TableBody>
       </Table>
     </TableContainer>

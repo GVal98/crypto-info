@@ -93,7 +93,7 @@ const MarketCapBox = ({ marketCap, marketCapRank }) => (
 )
 
 export default function MainInfo({
-  data: { name, image, symbol, price, change24h, marketCap, marketCapRank },
+  coinData: { name, image, symbol, price, change24h, marketCap, marketCapRank },
 }) {
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', mb: 3, flexWrap: 'wrap' }}>

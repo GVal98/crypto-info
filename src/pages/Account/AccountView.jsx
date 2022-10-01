@@ -1,6 +1,6 @@
 import { Typography, Button, Card, CardActions, CardContent } from '@material-ui/core'
 
-export default function AccountInfoView({ username, favorites, handleLogout }) {
+export default function AccountInfoView({ username, favoritesCount, handleLogout }) {
   return (
     <>
       <Typography sx={{ mb: 3 }} variant="h4" component="h1">
@@ -18,7 +18,7 @@ export default function AccountInfoView({ username, favorites, handleLogout }) {
             Favorites count
           </Typography>
           <Typography variant="h5">
-            {favorites && favorites.length}
+            {favoritesCount}
           </Typography>
         </CardContent>
         <CardActions>

@@ -2,14 +2,20 @@ import { TableContainer, Table as MaterialTable, Paper, TableBody } from '@mater
 import Head from './Head'
 import Row from './Row'
 
-export default function Table({ data, favorites }) {
+export default function Table({ coinsArray, favorites }) {
   return (
     <TableContainer component={Paper}>
       <MaterialTable>
         <Head />
         <TableBody>
-          {data.map(
-            (row) => <Row data={row} key={row.id} isFavorite={favorites.includes(row.id)} />,
+          {coinsArray.map(
+            (coin) => (
+              <Row
+                coinData={coin}
+                key={coin.id}
+                isFavorite={favorites.includes(coin.id)}
+              />
+            ),
           )}
         </TableBody>
       </MaterialTable>

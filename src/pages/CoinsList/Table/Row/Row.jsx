@@ -4,7 +4,7 @@ import { useAddFavoriteMutation, useRemoveFavoriteMutation } from '../../../../a
 import { selectAccessToken } from '../../../../store/userSlice'
 import RowView from './RowView'
 
-export default function Row({ data, isFavorite }) {
+export default function Row({ coinData, isFavorite }) {
   const addToFavorites = () => {
     if (!accessToken) {
       const { pathname } = history.location
@@ -12,10 +12,10 @@ export default function Row({ data, isFavorite }) {
       return
     }
     if (isFavorite) {
-      removeFavorite({ accessToken, tokenId: data.id })
+      removeFavorite({ accessToken, tokenId: coinData.id })
       return
     }
-    addFavorite({ accessToken, tokenId: data.id })
+    addFavorite({ accessToken, tokenId: coinData.id })
   }
 
   const [addFavorite] = useAddFavoriteMutation()
@@ -25,7 +25,7 @@ export default function Row({ data, isFavorite }) {
 
   return (
     <RowView
-      data={data}
+      coinData={coinData}
       isFavorite={isFavorite}
       addToFavorites={addToFavorites}
     />

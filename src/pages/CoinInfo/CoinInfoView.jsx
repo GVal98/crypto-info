@@ -29,12 +29,12 @@ const extraInfoStyle = {
   mb: 2,
 }
 
-export default function CoinInfoView({ coinId, cachedData, data, isError, isFetching }) {
+export default function CoinInfoView({ coinId, cachedData, coinData, isError, isFetching }) {
   return (
     <>
       {isError && 'Error'}
       <Loader loading={isFetching} />
-      <MainInfo data={data || cachedData} />
+      <MainInfo coinData={coinData || cachedData} />
       <Container disableGutters maxWidth="lg" sx={containerStyle}>
         <Box sx={chartStyle}>
           <Typography variant="h5" component="h2">Annual price chart</Typography>
@@ -44,7 +44,7 @@ export default function CoinInfoView({ coinId, cachedData, data, isError, isFetc
           <Typography variant="h5" component="h2">Info</Typography>
           {isError && 'Error'}
           <Loader loading={isFetching} />
-          {data && <ExtraInfo data={data} />}
+          {coinData && <ExtraInfo coinData={coinData} />}
         </Box>
       </Container>
     </>

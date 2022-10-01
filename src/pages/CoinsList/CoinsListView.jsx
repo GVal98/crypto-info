@@ -3,7 +3,7 @@ import Loader from '../../components/Loader'
 import Table from './Table'
 import Pagination from './Pagination'
 
-export default function CoinsListView({ data, isFetching, isError, favorites, pageNumber }) {
+export default function CoinsListView({ coinsArray, isFetching, isError, favorites, pageNumber }) {
   return (
     <>
       <Loader loading={isFetching} />
@@ -11,9 +11,9 @@ export default function CoinsListView({ data, isFetching, isError, favorites, pa
         Cryptocurrency List
       </Typography>
       {isError && 'Error'}
-      {data && (
+      {coinsArray && (
         <>
-          <Table data={data} favorites={favorites} />
+          <Table coinsArray={coinsArray} favorites={favorites} />
           <Pagination pageNumber={pageNumber} />
         </>
       )}

@@ -1,25 +1,25 @@
 import NameCellView from './NameCellView'
 
-const createLinkTo = (data) => ({
-  pathname: `/coin/${data.id}`,
+const createLinkTo = (coinData) => ({
+  pathname: `/coin/${coinData.id}`,
   state: {
-    name: data.name,
-    image: data.image,
-    symbol: data.symbol,
-    price: data.current_price,
-    change24h: data.price_change_percentage_24h,
-    marketCap: data.market_cap,
-    marketCapRank: data.market_cap_rank,
+    name: coinData.name,
+    image: coinData.image,
+    symbol: coinData.symbol,
+    price: coinData.current_price,
+    change24h: coinData.price_change_percentage_24h,
+    marketCap: coinData.market_cap,
+    marketCapRank: coinData.market_cap_rank,
   },
 })
 
-export default function NameCell({ data }) {
+export default function NameCell({ coinData }) {
   return (
     <NameCellView
-      linkTo={createLinkTo(data)}
-      name={data.name}
-      image={data.image}
-      symbol={data.symbol}
+      linkTo={createLinkTo(coinData)}
+      name={coinData.name}
+      image={coinData.image}
+      symbol={coinData.symbol}
     />
   )
 }

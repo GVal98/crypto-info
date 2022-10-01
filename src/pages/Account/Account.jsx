@@ -12,7 +12,7 @@ export default function AccountInfo() {
   return (
     <AccountView
       username={username}
-      favorites={favorites}
+      favoritesCount={favorites && favorites.length}
       handleLogout={() => dispatch(logOut())}
     />
   )

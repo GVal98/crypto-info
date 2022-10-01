@@ -16,7 +16,7 @@ export default function CoinsList() {
 
   return (
     <CoinsListView
-      data={data}
+      coinsArray={data}
       isFetching={isFetching}
       isError={isError}
       favorites={favoritesData || []}

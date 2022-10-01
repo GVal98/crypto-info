@@ -29,7 +29,7 @@ export default function CoinInfo() {
     <CoinInfoView
       coinId={coinId}
       cachedData={cachedData}
-      data={data && mapData(data)}
+      coinData={data && mapData(data)}
       isError={isError}
       isFetching={isFetching}
     />
