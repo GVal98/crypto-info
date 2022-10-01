@@ -5,6 +5,7 @@ const style = { mt: 2, display: 'flex', justifyContent: 'center' }
 
 export default function Pagination({ pageNumber }) {
   const onPageChange = (page) => {
+    if (!page) return
     history.push(`/${page}`)
     window.scrollTo(0, 0)
   }
