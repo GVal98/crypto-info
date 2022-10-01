@@ -6,7 +6,8 @@ import RowView from './RowView'
 export default function Row({ data, isFavorite }) {
   const addToFavorites = () => {
     if (!accessToken) {
-      history.push(`${history.pathname === '/' ? '' : history.pathname}/login`)
+      const { pathname } = history.location
+      history.push(`${pathname === '/' ? '' : pathname}/login`)
       return
     }
     if (isFavorite) {
