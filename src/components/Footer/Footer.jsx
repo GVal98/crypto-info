@@ -10,7 +10,7 @@ export default function Footer() {
         Coins API by <Link href="https://www.coingecko.com/">CoinGecko</Link>
       </Typography>
       <Typography>
-        Developed by <Link href="https://gval98.com/">GVal98</Link>
+        Developed by <Link href="https://t.me/GVal98/">GVal98</Link>
       </Typography>
     </Paper>
   )
