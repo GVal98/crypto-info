@@ -1,5 +1,5 @@
 const fetchUser = async (options) => {
-  const response = await fetch('http://127.0.0.1:3001/accessToken', {
+  const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/accessToken`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json;charset=utf-8',
