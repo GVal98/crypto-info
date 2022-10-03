@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Container } from '@material-ui/core'
 import { selectUsername } from '../store/userSlice'
 import Header from '../components/Header'
@@ -13,7 +13,7 @@ export default function App() {
   const username = useSelector(selectUsername)
 
   return (
-    <BrowserRouter basename="/cryptoInfo">
+    <HashRouter>
       <Container maxWidth="lg" disableGutters>
         <LoginModal />
         <Header />
@@ -36,6 +36,6 @@ export default function App() {
         </Switch>
         <Footer />
       </Container>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
