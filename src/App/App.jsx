@@ -13,7 +13,7 @@ export default function App() {
   const username = useSelector(selectUsername)
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/cryptoInfo">
       <Container maxWidth="lg" disableGutters>
         <LoginModal />
         <Header />
