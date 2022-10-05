@@ -26,7 +26,9 @@ Live demo: https://gval98.github.io/cryptoInfo/
 ### Usage:
 
 Change `homepage` in `package.json`
+
 Install: `npm install`
 
 Build: `npm run build`
+
 Dev server: `npm start`
